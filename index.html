@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='UTF-8'>
+
+	<title>Responsive Table</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/style.css">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    * { 
+	margin: 0; 
+	padding: 0; 
+}
+body { 
+	font: 14px/1.4 Georgia, Serif; 
+}
+#page-wrap {
+	margin: 50px;
+}
+p {
+	margin: 20px 0; 
+}
+
+	/* 
+	Generic Styling, for Desktops/Laptops 
+	*/
+	table { 
+		width: 100%; 
+		border-collapse: collapse; 
+	}
+	/* Zebra striping */
+	tr:nth-of-type(odd) { 
+		background: #eee; 
+	}
+	th { 
+		background: #333; 
+		color: white; 
+		font-weight: bold; 
+	}
+	td, th { 
+		padding: 6px; 
+		border: 1px solid #ccc; 
+		text-align: Center; 
+	}
+
+
+	/*
+	Max width before this PARTICULAR table gets nasty
+	This query will take effect for any screen smaller than 760px
+	and also iPads specifically.
+	*/
+	@media
+	only screen and (max-width: 760px),
+	(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+
+		tr { border: 1px solid #ccc; }
+
+		td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+			padding-left: 50%;
+		}
+
+		td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 6px;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
+
+		/*
+		Label the data
+		*/
+		td:nth-of-type(1):before { content: "Permit No."; }
+		td:nth-of-type(2):before { content: "Band No"; }
+		td:nth-of-type(3):before { content: "Date mm/dd/yy"; }
+		td:nth-of-type(4):before { content: "Island"; }
+		td:nth-of-type(5):before { content: "Species"; }
+		td:nth-of-type(6):before { content: "Disposition"; }
+		td:nth-of-type(7):before { content: "Replaced Band No."; }
+		td:nth-of-type(8):before { content: "Metal Band Leg."; }
+		td:nth-of-type(9):before { content: "Age"; }
+		td:nth-of-type(10):before { content: "Sex"; }
+		td:nth-of-type(11):before { content: "Aux Marker"; }
+		td:nth-of-type(12):before { content: "Marker Type"; }
+		td:nth-of-type(13):before { content: "Color Band Code"; }
+		td:nth-of-type(14):before { content: "Date mm/dd/yy"; }
+		td:nth-of-type(15):before { content: "Island"; }
+		td:nth-of-type(16):before { content: "Plot No."; }
+		td:nth-of-type(17):before { content: "Metal Band Leg? (L or R)"; }
+		td:nth-of-type(18):before { content: "Nest Location"; }
+		td:nth-of-type(19):before { content: "Bird Status"; }
+		td:nth-of-type(20):before { content: "How Obtained"; }
+		td:nth-of-type(21):before { content: "Remarks"; }
+		td:nth-of-type(22):before { content: "Photo"; }
+	}
+</style>
+</head>
+
+<body>
+
+	<div id="page-wrap">
+
+	<h3>Midway Atoll National Wildlife Refuge Banding Data sheet (for new: metal or metal and color bands).</h3>
+
+	<p>Date and intials for data entered into Excel for import to bandit:</p>
+
+	<p>Disposition: 300 = Normal bird with metal band only or 301 = metal and color band. Island = SIMA: Sand, EIMA: Eastern, SPMA: Spit.<br> AGE: L = local for chick or fledging. AHY = adult, subadult, unknown. Sex = M, F, or U. Bander = FWS Staff. Color Band example: R/W red band with white letter and numbers.<br>Write only first 7 numbers of the bending string at top of data sheet. Species: LAAL, BFAL, RTTR, etc.</p>
+
+	<table>
+		<thead>
+		<tr>
+			<th>Permit<br>No.</th>
+			<th>Band No.</th>
+			<th>Date<br>mm/dd/yy</th>
+			<th>Island</th>
+			<th>Species</th>
+			<th>Disposition</th>
+			<th>Replaced<br>Band<br>No.</th>
+			<th>Metal<br>Band<br>Leg</th>
+			<th>Age</th>
+			<th>Sex</th>
+            <th>Aux Marker</th>
+            <th>Marker Type</th>
+            <th>Color<br>Band<br>Code</th>
+            <th>Additional<br>Markers</th>
+            <th>Sweep</th>
+            <th>Plot<br>ID</th>
+            <th>Nest<br>No.</th>
+            <th>Nest<br>Location</th>
+            <th>Bird<br>Status</th>
+            <th>How<br>Obtained</th>
+            <th>Remarks</th>
+            <th>Photo</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+            <td>BFAL</td>
+            <td>16</td>
+            <td>4/24/14</td>
+            <td>SIMA</td>
+            <td>B7</td>
+            <td>R</td>
+            <td>R/W</td>
+            <td>16</td>
+            <td>L</td>
+            <td>U</td>
+            <td>BFAL</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+		<tr>
+            <td>BFAL</td>
+            <td>16</td>
+            <td>4/24/14</td>
+            <td>SIMA</td>
+            <td>B7</td>
+            <td>R</td>
+            <td>R/W</td>
+            <td>16</td>
+            <td>L</td>
+            <td>U</td>
+            <td>BFAL</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+		<tr>
+            <td>BFAL</td>
+            <td>16</td>
+            <td>4/24/14</td>
+            <td>SIMA</td>
+            <td>B7</td>
+            <td>R</td>
+            <td>R/W</td>
+            <td>16</td>
+            <td>L</td>
+            <td>U</td>
+            <td>BFAL</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+		<tr>
+            <td>BFAL</td>
+            <td>16</td>
+            <td>4/24/14</td>
+            <td>SIMA</td>
+            <td>B7</td>
+            <td>R</td>
+            <td>R/W</td>
+            <td>16</td>
+            <td>L</td>
+            <td>U</td>
+            <td>BFAL</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+		<tr>
+            <td>BFAL</td>
+            <td>16</td>
+            <td>4/24/14</td>
+            <td>SIMA</td>
+            <td>B7</td>
+            <td>R</td>
+            <td>R/W</td>
+            <td>16</td>
+            <td>L</td>
+            <td>U</td>
+            <td>BFAL</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+            <td>N/A</td>
+        </tr>
+      <tr>
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Species" /></td>
+                    <td><input class="form-control" name="color[]" type="text" placeholder="Metal Band" /></td>
+                    <td><input class="form-control" name="other[]" type="date" placeholder="Date" /></td>
+                    <td><input class="form-control" name="price[]" type="text" placeholder="Island" /></td>
+                    <td><input class="form-control" name="quantity[]" type="number" placeholder="Plot No." /></td>
+                    <td><input class="form-control" name="promotion[]" type="text" placeholder="Metal Band Leg" /></td>
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Color Band Color" /></td>
+        
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Color Band No." /></td>
+        
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Age" /></td>
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Sex" /></td>
+        			<td><input class="form-control" name="size[]" type="text" placeholder="Notes" /></td>
+        			<td><input class="form-control" name="size[]" type="text" placeholder="Species" /></td>
+                    <td><input class="form-control" name="color[]" type="text" placeholder="Metal Band" /></td>
+                    <td><input class="form-control" name="other[]" type="text" placeholder="Date" /></td>
+                    <td><input class="form-control" name="price[]" type="text" placeholder="Island" /></td>
+                    <td><input class="form-control" name="quantity[]" type="number" placeholder="Plot No." /></td>
+                    <td><input class="form-control" name="promotion[]" type="text" placeholder="Metal Band Leg" /></td>
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Color Band Color" /></td>
+        
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Color Band No." /></td>
+        
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Age" /></td>
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Sex" /></td>
+                    <td><input class="form-control" name="size[]" type="text" placeholder="Sex" /></td>
+                    <td>
+                        <button class="btn btn-danger btn-remove" type="button">
+                            <i class="glyphicon glyphicon-minus gs"></i>
+                        </button>
+                    </td>
+                </tr>
+		</tbody>
+	</table>
+  <button class="btn btn-info btn-add" type="button">
+           <i class="glyphicon glyphicon-plus gs"></i> 
+           <b> Add</b>
+        </button>
+        <button class="btn btn-success" type="submit">
+           <b> Save</b>
+        </button>
+        <button class="btn btn-default" type="button">
+           <b> Back</b>
+        </button>
+	</div>
+  <script>
+  	$(document).ready(function() {
+    //Disable the Remove Button
+    var rowCount = $('table >tbody:last >tr').length;
+    if(rowCount == 1) {
+        document.getElementsByClassName('btn-remove')[0].disabled = true;
+    }
+    
+    $(document).on('click', '.btn-add', function(e) {
+        e.preventDefault();
+        
+        var controlForm = $('table');
+        var currentEntry = $('table>tbody>tr:last');
+        var newEntry = $(currentEntry.clone()).appendTo(controlForm);
+        newEntry.find('input').val('');                                         //Remove the Data - as it is cloned from the above
+        
+        //Add the button  
+        var rowCount = $('table >tbody:last >tr').length;
+        if(rowCount > 1) {
+            var removeButtons = document.getElementsByClassName('btn-remove');
+            for(var i = 0; i < removeButtons.length; i++) {
+                removeButtons.item(i).disabled = false;
+            }
+        }
+         
+    }).on('click', '.btn-remove', function(e) {
+        $(this).parents('tr:first').remove();
+        
+        //Disable the Remove Button
+        var rowCount = $('table >tbody:last >tr').length;
+        if(rowCount == 1) {
+            document.getElementsByClassName('btn-remove')[0].disabled = true;
+        }
+
+        e.preventDefault();
+        return false;
+    });
+});
+  </script>
+</body>
+
+</html>
